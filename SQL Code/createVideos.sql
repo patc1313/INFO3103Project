@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS videos;
+CREATE TABLE videos (
+ videoId INT NOT NULL AUTO_INCREMENT,
+ title varchar(250) NOT NULL,
+ userId INT,
+ PRIMARY KEY (videoId),
+ FOREIGN KEY (userId) REFERENCES users(userId)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);

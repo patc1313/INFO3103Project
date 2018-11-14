@@ -1,0 +1,16 @@
+This file contains the test code one can use to interact with the
+
+Get all the users:
+curl http://info3103.cs.unb.ca:50533/users
+
+Get all the Videos:
+curl http://info3103.cs.unb.ca:50533/videos
+
+Get one user:
+curl http://info3103.cs.unb.ca:50533/users/Jeff
+
+Get a video from a user:
+curl http://info3103.cs.unb.ca:50533/users/Patrick/videos/Mark%20is%20weird
+
+Get all of a users videos:
+http://info3103.cs.unb.ca:50533/users/Bob%20Macigh/videos

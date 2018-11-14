@@ -1,0 +1,131 @@
+#%RAML 1.0
+---
+author: Patrick Webb
+title: Project API
+baseUri: http://info3103.cs.unb.ca/{version}
+version: v0.01
+/users:
+  get:
+    description: Retrieve all users
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "data": {
+                  "1": "user 1",
+                  "2": "user 2"
+                },
+                "success": true,
+                "status": 200
+              }
+  post:
+    description: Creating a new users
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"message": "Successfully created user account"}
+      400:
+        body:
+          application/json:
+            example: {"message": "Unable to create new user"}
+  /{user id}:
+    get:
+      description: Retrieve specific user information
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+               {
+                "data": {
+                  "id": "12",
+                  "name": "John Doe",
+                  "DOB": "77/07/07",
+                  "location": "This Street",
+                  "email": "johnDoe@gmail.com"
+                },
+                "success": true,
+                "status": 200
+              }
+        404:
+          body:
+            application/json:
+              example: {"message": "That user does not exist"}
+    delete:
+      description: Delete a specific user
+      responses:
+        200:
+          body:
+            application/json: {"message": "Deleted user {username}"}
+        404:
+          body:
+            application/json: {"message": "That user does not exist"}
+    /videos:
+      get:
+        description: Retrieve all of the user's videos
+        responses:
+          200:
+            body:
+              application/json:
+                example:
+                  {
+                    "data": {
+                      "1": "Video 1",
+                      "2": "Video 2"
+                    },
+                    "success": true,
+                    "status": 200
+                  }
+      post:
+        description: Creating a new video for the user
+        responses:
+          200:
+            body:
+              application/json:
+                example: {"message": "Successfully created video"}
+          400:
+            body:
+              application/json:
+                example: {"message": "Unable to create new video"}
+      /{video id}:
+        get:
+          description: Retrieve specific video's information
+          responses:
+            200:
+              body:
+                application/json:
+                  example: {
+                    "data": {
+                      "id": "2",
+                      "name": "See my Chicken",
+                      "creator id": 12,
+                      "published date": 16/12/12
+                    },
+                    "success": true,
+                    "status": 200
+                  }
+            404:
+              body:
+                application/json:
+                  example: {"message": "That video does not exist"}
+        put:
+          description: Update a video's information
+          responses:
+            200:
+              body:
+                application/json: {"message": "Updated video information"}
+            400:
+              body:
+                application/json: {"message": "unable to update video's information"}
+        delete:
+          description: Delete a specific video
+          responses:
+            200:
+              body:
+                application/json: {"message": "Deleted video {videoname}"}
+            404:
+              body:
+                application/json: {"message": "That video does not exist"}
